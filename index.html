@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>123</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./src/css/index.css">
+</head>
+
+<body>
+
+    <div class="warp">
+        <!-- <img src="./praise.jpg"> -->
+        <!-- hand -->
+        <div class="hand-outer" id="praise">
+            <!-- palm -->
+            <div class="hand"></div>
+            <!-- finger -->
+            <div class="finger"></div>
+        </div>
+        <!-- show-add -->
+        <div class="love-content">
+            <div class="love"></div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+    SystemJS.config({
+        baseURL: '/praise/src/scripts'
+    });
+
+    SystemJS.import('index-es.js').then(function(m) {
+        $.extend({
+            thumb: m.default.Thumb
+        })
+        callBack();
+    });
+    function callBack() {
+        var f = new $.thumb(0, $('.hand-outer'));
+        f.clickBtn();
+    };
+    </script>
+</body>
+
+</html>
